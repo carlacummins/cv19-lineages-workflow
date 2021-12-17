@@ -1,0 +1,21 @@
+basedir = workflow.basedir
+embl_input = config["embl_input"]
+
+print("Base dir: {}".format(basedir))
+print("EMBL input: {}".format(embl_input))
+
+configfile: "config/config.yaml"
+
+##### load rules #####
+
+include: "rules/copy_embl_file.smk"
+include: "rules/make_json_header_footer.smk"
+include: "rules/split_embl_file.smk"
+include: "rules/run_pangolin.smk"
+include: "rules/convert_to_json.smk"
+include: "rules/join_json.smk"
+
+##### target rules #####
+
+rule all:
+    input: "covid19-lineages.json"
