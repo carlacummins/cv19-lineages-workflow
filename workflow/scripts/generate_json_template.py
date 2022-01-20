@@ -14,8 +14,10 @@ with open(version_file, 'w') as vfile_out:
 
 release_date = datetime.today().strftime('%Y-%m-%d')
 
-total_seqs = subprocess.check_output("grep -c '^//' {}".format(sys.argv[1]), shell=True)
+infile = sys.argv[1]
+total_seqs = subprocess.check_output("grep -c 'acc' {}".format(infile), shell=True)
 entry_count = int(total_seqs)
+sys.stderr.write("Found {} entries in {}\n\n".format(entry_count, infile))
 
 jdict = {
     "name": "lineage-covid19",
@@ -30,18 +32,3 @@ jdict = {
 }
 json_object = json.dumps(jdict, indent = 4) 
 print(json_object)
-
-
-
-"""
-{
-        "name": "lineage-covid19",
-        "release": "2.1",
-        "release_date": "2021-12-13",
-        "entry_count": 2565721,
-        "entries":
-        [
-                {
-                    "fields": [
-                        {
-"""

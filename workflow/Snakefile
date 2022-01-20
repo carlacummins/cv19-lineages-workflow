@@ -1,8 +1,5 @@
-basedir = workflow.basedir
-embl_input = config["embl_input"]
-
-print("Base dir: {}".format(basedir))
-print("EMBL input: {}".format(embl_input))
+# basedir = workflow.basedir
+# print("Base dir: {}".format(basedir))
 
 configfile: "config/config.yaml"
 
@@ -13,7 +10,9 @@ include: "rules/make_json_header_footer.smk"
 include: "rules/split_embl_file.smk"
 include: "rules/run_pangolin.smk"
 include: "rules/convert_to_json.smk"
-include: "rules/join_json.smk"
+# include: "rules/join_json.smk"
+include: "rules/join_json_entries.smk"
+include: "rules/complete_json.smk"
 
 ##### target rules #####
 

@@ -3,5 +3,8 @@ rule run_pangolin:
         "sequences/pango_seqs.{n}.fasta"
     output:
         "pango/pango_lineages.{n}.csv"
+    threads: 4
+    resources:
+        mem_mb = 2048
     shell:
-        "pangolin --threads 1 --outfile {output} {input}"
+        "pangolin --threads {threads} --outfile {output} {input}"

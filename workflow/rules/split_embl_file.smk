@@ -6,4 +6,4 @@ rule split_embl_file:
     params:
         num = str(config["chunks"])
     shell:
-        "python {basedir}/scripts/split_embl_file.py --embl {input.embl} --num {params.num} --outdir sequences/"
+        "python workflow/scripts/split_embl_file.py --embl {input.embl} --num {params.num} --outdir sequences/"

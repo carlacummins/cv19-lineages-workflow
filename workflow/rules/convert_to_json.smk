@@ -4,4 +4,4 @@ rule convert_to_json:
     output:
         "json/pango_lineages.{n}.json"
     shell:
-        "python {basedir}/scripts/pangolin_to_ebi_search.py {input} > {output}"
+        "python workflow/scripts/pangolin_to_ebi_search.py {input} > {output}"
