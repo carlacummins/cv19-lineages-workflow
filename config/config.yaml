@@ -1,2 +1,2 @@
 chunks: 500
-embl_input: "/nfs/production/panda/production/ena/index/EBeye/covid19/embl-covid19.dat"
+embl_input: "/hps/nobackup/cochrane/ena/ebisearch/covid19/embl-covid19.dat"

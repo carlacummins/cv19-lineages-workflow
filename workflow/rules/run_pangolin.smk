@@ -1,4 +1,6 @@
 rule run_pangolin:
+    conda:
+        "pangolin"
     input:
         "sequences/pango_seqs.{n}.fasta"
     output:
